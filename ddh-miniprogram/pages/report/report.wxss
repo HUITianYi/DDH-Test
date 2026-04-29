@@ -1,0 +1,38 @@
+.item {
+  color: #111;
+  line-height: 46rpx;
+}
+
+.paragraph {
+  margin-bottom: 12rpx;
+  line-height: 46rpx;
+}
+
+.token {
+  color: #1f2937;
+  font-size: 30rpx;
+}
+
+.token-highlight {
+  color: #b91c1c;
+  font-weight: 600;
+  background: #fee2e2;
+  border-radius: 8rpx;
+  padding: 2rpx 6rpx;
+}
+
+.risk-chip {
+  display: inline-block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #92400e;
+  background: #fef3c7;
+  border-radius: 999rpx;
+  padding: 8rpx 20rpx;
+}
+
+.disclaimer {
+  color: #8c8c8c;
+  line-height: 44rpx;
+  font-size: 26rpx;
+}

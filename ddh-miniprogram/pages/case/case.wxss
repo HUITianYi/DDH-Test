@@ -1,0 +1,24 @@
+.textarea {
+  width: 100%;
+  min-height: 160rpx;
+  background: #fafafa;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+
+.thumbs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 16rpx;
+  margin-right: 12rpx;
+  margin-bottom: 12rpx;
+  background: #f0f0f0;
+}

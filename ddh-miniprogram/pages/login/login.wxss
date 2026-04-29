@@ -1,0 +1,17 @@
+.login-card {
+  margin-top: 120rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 56rpx;
+}
+
+.subtitle {
+  margin-top: 18rpx;
+  color: #6b7280;
+  font-size: 28rpx;
+  line-height: 44rpx;
+}

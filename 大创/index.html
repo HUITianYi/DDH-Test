@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDH智能辅助诊断系统 - 多模态AI医疗原型</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-stethoscope"></i>
+                <span data-i18n="project_name">DDH智能辅助诊断</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero" data-i18n="nav_home">首页</a></li>
+                    <li><a href="#workflow" data-i18n="nav_workflow">工作流程</a></li>
+                    <li><a href="#demo" data-i18n="nav_demo">诊断系统</a></li>
+                    <li><a href="#about" data-i18n="nav_about">关于项目</a></li>
+                </ul>
+            </nav>
+            <div class="language-dropdown">
+                <button class="lang-drop-btn">
+                    <i class="fas fa-globe"></i>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="javascript:void(0)" onclick="switchLanguage('zh')">中文</a>
+                    <a href="javascript:void(0)" onclick="switchLanguage('en')">English</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 data-i18n="slide1_title">基于多模态信息融合的儿童DDH诊断</h1>
+                    <p class="subtitle" data-i18n="slide1_desc">整合本地深度学习影像特征与云端大模型语义分析，实现高精度、可解释的早期筛查。</p>
+                    <div class="hero-badges">
+                        <span class="badge"><i class="fas fa-microchip"></i> <span data-i18n="badge_ai_image">AI影像分析</span></span>
+                        <span class="badge"><i class="fas fa-brain"></i> <span data-i18n="badge_llm_reasoning">智能语义推理</span></span>
+                        <span class="badge"><i class="fas fa-shield-alt"></i> <span data-i18n="badge_privacy">隐私数据保护</span></span>
+                    </div>
+                    <div class="hero-btns">
+                        <a href="#demo" class="btn btn-primary" data-i18n="demo_run">立即体验</a>
+                        <a href="#workflow" class="btn btn-outline" data-i18n="nav_workflow">了解技术</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section id="workflow" class="workflow-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="nav_workflow">技术架构与工作流程</h2>
+                <div class="workflow-grid">
+                    <div class="workflow-card">
+                        <div class="icon-box"><i class="fas fa-upload"></i></div>
+                        <h3 data-i18n="workflow_step1_title">数据采集</h3>
+                        <p data-i18n="workflow_step1_desc">上传患者髋关节X光/超声影像，并输入临床观察到的病史描述与查体结果。</p>
+                    </div>
+                    <div class="workflow-card">
+                        <div class="icon-box"><i class="fas fa-project-diagram"></i></div>
+                        <h3 data-i18n="workflow_step2_title">本地影像识别</h3>
+                        <p data-i18n="workflow_step2_desc">服务器本地ResNet34模型实时提取影像视觉特征，计算量化异常评分，保护数据隐私。</p>
+                    </div>
+                    <div class="workflow-card">
+                        <div class="icon-box"><i class="fas fa-brain"></i></div>
+                        <h3 data-i18n="workflow_step3_title">云端多模态融合</h3>
+                        <p data-i18n="workflow_step3_desc">整合影像分数与文本语义，由DeepSeek-V3生成具备专业临床逻辑的诊断建议与风险评估。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section id="demo" class="demo-section">
+            <div class="container">
+                <div class="demo-card-enhanced">
+                    <div class="demo-header">
+                        <h2 data-i18n="demo_title">DDH智能辅助诊断系统</h2>
+                        <p data-i18n="demo_desc">上传影像与病史信息，体验端云协同的智能诊断闭环。</p>
+                    </div>
+                    
+                    <div class="demo-body">
+                        <div class="input-side">
+                            <div class="form-group">
+                                <label for="demo-image">
+                                    <i class="fas fa-image"></i> <span data-i18n="demo_label_xray">影像（X光/超声截图）</span>
+                                </label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="demo-image" accept="image/*">
+                                    <div class="file-upload-info" data-i18n="demo_file_hint">点击或拖拽上传影像文件</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="demo-text">
+                                    <i class="fas fa-file-alt"></i> <span data-i18n="demo_label_text">临床文字描述</span>
+                                </label>
+                                <textarea id="demo-text" rows="6" data-i18n-placeholder="demo_text_placeholder" placeholder="例如：宝宝4个月，皮纹不对称，走路有弹响..."></textarea>
+                            </div>
+
+                            <div class="demo-actions">
+                                <button class="btn btn-primary btn-lg" id="demo-run">
+                                    <i class="fas fa-play"></i> <span data-i18n="demo_run">生成结果</span>
+                                </button>
+                                <button class="btn btn-secondary" id="demo-clear">
+                                    <i class="fas fa-undo"></i> <span data-i18n="demo_clear">清空</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Modal -->
+        <div id="result-modal" class="modal-overlay hidden">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <i class="fas fa-file-medical"></i>
+                        <span data-i18n="demo_result_title">诊断分析报告</span>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-icon" id="demo-download" disabled title="下载报告">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="btn btn-icon" id="close-modal" title="关闭">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="demo-status" class="status-indicator hidden">
+                        <div class="spinner"></div>
+                        <span data-i18n="status_analyzing">正在进行多模态深度分析...</span>
+                    </div>
+                    <div id="demo-output" class="report-display-modal">
+                        <!-- 动态内容 -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="modal-close-btn" data-i18n="modal_close">关闭窗口</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Global Image Viewer (Lightbox) -->
+        <div id="image-viewer" class="modal-overlay hidden" style="background: rgba(0,0,0,0.9); z-index: 3000;">
+            <div class="modal-actions" style="position: absolute; top: 20px; right: 20px;">
+                <button class="btn btn-icon" id="close-viewer" style="color: white; font-size: 2rem;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <img id="full-image" src="" style="max-width: 95%; max-height: 95vh; object-fit: contain; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.5);">
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2 data-i18n="nav_about">关于项目</h2>
+                        <p data-i18n="about_content">本项目旨在解决儿童发育性髋关节发育不良（DDH）早期诊断中存在的模态单一、主观性强等问题。通过端云协同架构，我们将经典的CNN影像特征提取与先进的LLM语义推理相结合，为临床提供更严谨、可解释的辅助决策支持。</p>
+                        <div class="tech-stack">
+                            <h4 data-i18n="tech_stack_title">技术栈</h4>
+                            <div class="tech-icons">
+                                <span title="PyTorch"><i class="fab fa-python"></i> PyTorch</span>
+                                <span title="FastAPI"><i class="fas fa-bolt"></i> FastAPI</span>
+                                <span title="OpenAI API"><i class="fas fa-robot"></i> DeepSeek</span>
+                                <span title="JavaScript"><i class="fab fa-js"></i> Frontend</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <h3>ResNet34</h3>
+                            <p data-i18n="stat_resnet">本地视觉提取</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>DeepSeek-V3</h3>
+                            <p data-i18n="stat_llm">语义融合推理</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Real-time</h3>
+                            <p data-i18n="stat_speed">毫秒级响应</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-i18n="footer_text">&copy; 基于多模态信息融合的儿童DDH诊断项目组</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

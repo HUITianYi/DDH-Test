@@ -1,0 +1,8 @@
+<view class="card login-card">
+  <view class="title">{{needHistoryAccess ? "查看历史记录前请先登录" : "按需登录"}}</view>
+  <view class="subtitle">{{needHistoryAccess ? "你可以先浏览和体验主要功能；如需查看历史记录，请在这里登录。" : "主要功能支持游客体验；需要保存身份并访问历史记录时再登录即可。"}}</view>
+  <view style="height: 36rpx;"></view>
+  <button class="btn-primary" loading="{{loading}}" disabled="{{loading}}" bindtap="onWxLogin">
+    {{loading ? "登录中..." : "微信一键登录"}}
+  </button>
+</view>

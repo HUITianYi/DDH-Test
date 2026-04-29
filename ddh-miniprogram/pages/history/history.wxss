@@ -1,0 +1,49 @@
+.history-item {
+  border: 1rpx solid #eef2f7;
+}
+
+.report-id {
+  font-size: 24rpx;
+  color: #374151;
+  max-width: 72%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.time {
+  color: #9ca3af;
+  font-size: 24rpx;
+}
+
+.impression {
+  color: #111827;
+  font-size: 28rpx;
+  line-height: 42rpx;
+}
+
+.risk-pill {
+  padding: 6rpx 16rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+
+.risk-high {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+.risk-medium {
+  color: #d97706;
+  background: #fef3c7;
+}
+
+.risk-low {
+  color: #2563eb;
+  background: #dbeafe;
+}
+
+.risk-normal {
+  color: #4b5563;
+  background: #f3f4f6;
+}

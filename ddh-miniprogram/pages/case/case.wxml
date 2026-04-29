@@ -1,0 +1,37 @@
+<view class="card">
+  <view class="label">信息输入</view>
+  <view style="height: 16rpx;"></view>
+  <textarea
+    placeholder="请输入病史/查体要点/主诉（文字先走DeepSeek分析）"
+    value="{{inputText}}"
+    bindinput="onInput"
+    maxlength="-1"
+    auto-height
+    class="textarea"
+  />
+</view>
+
+<view class="card">
+  <view class="label">影像上传</view>
+  <view style="height: 16rpx;"></view>
+  <view class="row">
+    <view class="value">已选 {{images.length}} 张</view>
+    <button size="mini" bindtap="chooseImage">选择图片</button>
+  </view>
+  <view style="height: 8rpx;"></view>
+  <view class="label">当前版本仅使用首张图片参与分析。</view>
+  <view style="height: 16rpx;"></view>
+  <view class="thumbs">
+    <block wx:for="{{images}}" wx:key="*this">
+      <image class="thumb" mode="aspectFill" src="{{item}}" bindtap="previewImage" data-src="{{item}}" />
+    </block>
+  </view>
+</view>
+
+<view class="card">
+  <button class="btn-primary" loading="{{loading}}" disabled="{{loading}}" bindtap="submit">
+    {{loading ? "分析中..." : "生成报告"}}
+  </button>
+  <view style="height: 12rpx;"></view>
+  <button class="btn-danger" disabled="{{loading}}" bindtap="reset">清空</button>
+</view>

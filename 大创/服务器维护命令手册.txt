@@ -1,0 +1,35 @@
+# DDH 项目服务器维护命令手册 (PM2)
+
+本文件记录了在阿里云 ECS 服务器上维护 DDH 后端系统的核心命令。
+
+## 1. 基础状态管理
+- **查看运行状态**: `pm2 list`
+  (确认 ddh-backend 状态为绿色的 online)
+- **查看实时日志**: `pm2 logs ddh-backend`
+  (按 Ctrl+C 退出查看，不影响程序运行)
+- **重启服务**: `pm2 restart ddh-backend`
+  (修改 main.py 代码后必须运行此命令生效)
+- **停止服务**: `pm2 stop ddh-backend`
+- **启动服务**: `pm2 start ddh-backend`
+
+## 2. 监控与性能
+- **实时仪表盘**: `pm2 monit`
+  (查看 CPU、内存占用，按 q 退出)
+
+## 3. 自动化与持久化
+- **保存当前配置**: `pm2 save`
+  (修改启动参数或添加进程后，运行此命令确保重启后生效)
+- **设置开机自启**: `pm2 startup`
+  (通常在第一次部署时运行，根据提示执行生成的 sudo 命令)
+
+## 4. 故障排查 (Troubleshooting)
+- **强杀端口占用**: `sudo fuser -k 8000/tcp`
+  (如果重启 pm2 后依然无法访问，尝试先运行此命令清理端口)
+- **查看启动失败原因**: `pm2 logs ddh-backend --err`
+
+## 5. 项目路径参考
+- **后端目录**: `/home/ecs-user/ddh_project/app`
+- **虚拟环境**: `/home/ecs-user/ddh_project/venv`
+
+---
+© 基于多模态信息融合的儿童DDH诊断项目组 - 运维备忘录

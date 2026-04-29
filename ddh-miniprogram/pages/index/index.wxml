@@ -1,0 +1,67 @@
+<view class="card">
+  <view class="row">
+    <view class="value">DDH 多模态早筛（MVP）</view>
+  </view>
+  <view style="height: 12rpx;"></view>
+  <view class="label">当前版本对接后端诊断接口 `/diagnose`，支持离线 Mock 体验。</view>
+  <view style="height: 14rpx;"></view>
+  <view class="row">
+    <view class="label">当前用户</view>
+    <view class="value">{{user ? (user.nickname || "已登录用户") : "游客模式"}}</view>
+  </view>
+  <view style="height: 10rpx;"></view>
+  <view class="muted">不登录也可以直接体验新建筛查；查看历史记录时再登录即可。</view>
+</view>
+
+<view class="card">
+  <view class="label">功能体验</view>
+  <view style="height: 16rpx;"></view>
+  <button class="btn-primary" bindtap="goNewCase">新建筛查任务</button>
+  <view style="height: 12rpx;"></view>
+  <button bindtap="goHistory">查看历史记录</button>
+  <view style="height: 12rpx;"></view>
+  <button wx:if="{{user}}" class="btn-danger" bindtap="logout">退出登录</button>
+  <button wx:else bindtap="goLogin">登录后查看历史记录</button>
+</view>
+
+<view class="card">
+  <view class="label">后端状态</view>
+  <view style="height: 16rpx;"></view>
+  <view class="row">
+    <view class="label">Base URL</view>
+    <view class="value">{{baseUrl}}</view>
+  </view>
+  <view style="height: 10rpx;"></view>
+  <view class="row">
+    <view class="label">连通状态</view>
+    <view class="value">
+      <text class="{{backendStatusClass}}">{{backendStatusText}}</text>
+      <text wx:if="{{backendLatencyMs !== null}}" class="muted">（{{backendLatencyMs}}ms）</text>
+    </view>
+  </view>
+  <view style="height: 10rpx;"></view>
+  <view class="row" wx:if="{{backendCheckedAt}}">
+    <view class="label">上次检查</view>
+    <view class="value">{{backendCheckedAt}}</view>
+  </view>
+  <view style="height: 16rpx;"></view>
+  <button bindtap="checkBackend" loading="{{checkingBackend}}" disabled="{{checkingBackend}}">
+    {{checkingBackend ? "检查中..." : "检查后端"}}
+  </button>
+</view>
+
+<view class="card">
+  <view class="label">环境状态</view>
+  <view style="height: 16rpx;"></view>
+  <view class="row">
+    <view class="label">Mock 模式</view>
+    <view class="value">{{useMock ? "开" : "关"}}</view>
+  </view>
+  <view style="height: 10rpx;"></view>
+  <view class="row">
+    <view class="label">云函数调用</view>
+    <view class="value">{{useCloudFunction ? "开" : "关"}}</view>
+  </view>
+  <view style="height: 16rpx;"></view>
+  <button bindtap="toggleMock">{{useMock ? "关闭 Mock" : "开启 Mock"}}</button>
+</view>

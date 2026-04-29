@@ -1,0 +1,23 @@
+.label {
+  line-height: 44rpx;
+}
+
+.muted {
+  color: #9ca3af;
+  font-size: 24rpx;
+}
+
+.status-ok {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.status-bad {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.status-unknown {
+  color: #6b7280;
+  font-weight: 600;
+}

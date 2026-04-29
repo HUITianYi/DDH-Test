@@ -1,0 +1,62 @@
+<view class="card" wx:if="{{report}}">
+  <view class="row">
+    <view class="label">报告ID</view>
+    <view class="value">{{report.reportId}}</view>
+  </view>
+  <view style="height: 10rpx;"></view>
+  <view class="row">
+    <view class="label">生成时间</view>
+    <view class="value">{{report.createdAt}}</view>
+  </view>
+  <view style="height: 10rpx;"></view>
+  <view class="row">
+    <view class="label">模型</view>
+    <view class="value">{{report.model.name}}</view>
+  </view>
+</view>
+
+<view class="card" wx:if="{{report}}">
+  <view class="label">结论</view>
+  <view style="height: 12rpx;"></view>
+  <block wx:for="{{impressionParagraphs}}" wx:key="index">
+    <view class="paragraph">
+      <block wx:for="{{item.parts}}" wx:key="index">
+        <text class="{{item.highlight ? 'token token-highlight' : 'token'}}">{{item.text}}</text>
+      </block>
+    </view>
+  </block>
+</view>
+
+<view class="card" wx:if="{{report}}">
+  <view class="label">风险分级</view>
+  <view style="height: 12rpx;"></view>
+  <view class="risk-chip">{{report.output.riskLevel}}</view>
+</view>
+
+<view class="card" wx:if="{{report}}">
+  <view class="label">依据</view>
+  <view style="height: 12rpx;"></view>
+  <block wx:for="{{report.output.evidence}}" wx:key="*this">
+    <view class="item">- {{item}}</view>
+  </block>
+</view>
+
+<view class="card" wx:if="{{report}}">
+  <view class="label">建议</view>
+  <view style="height: 12rpx;"></view>
+  <block wx:for="{{report.output.recommendations}}" wx:key="*this">
+    <view class="item">- {{item}}</view>
+  </block>
+</view>
+
+<view class="card" wx:if="{{report}}">
+  <view class="label">声明</view>
+  <view style="height: 12rpx;"></view>
+  <view class="disclaimer">{{report.output.disclaimer}}</view>
+</view>
+
+<view class="card" wx:if="{{!report}}">
+  <view class="value">暂无报告，请先生成。</view>
+  <view style="height: 16rpx;"></view>
+  <button class="btn-primary" bindtap="goCreate">去生成</button>
+</view>

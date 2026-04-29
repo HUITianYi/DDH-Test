@@ -1,0 +1,18 @@
+<view class="card" wx:if="{{loading}}">
+  <view class="label">加载中...</view>
+</view>
+
+<view class="card" wx:if="{{!loading && list.length === 0}}">
+  <view class="value">暂无历史记录</view>
+</view>
+
+<view class="card history-item" wx:for="{{list}}" wx:key="reportId" data-id="{{item.reportId}}" bindtap="openDetail">
+  <view class="row">
+    <view class="value report-id">{{item.reportId}}</view>
+    <view class="risk-pill risk-{{item.riskClass}}">{{item.riskLevel}}</view>
+  </view>
+  <view style="height: 8rpx;"></view>
+  <view class="time">{{item.createdAt}}</view>
+  <view style="height: 10rpx;"></view>
+  <view class="impression">{{item.impression}}</view>
+</view>
