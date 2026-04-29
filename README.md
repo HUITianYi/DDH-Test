@@ -9,8 +9,6 @@
 - 微信小程序原型
 - 少量运行和展示所需静态资源
 
-不保留申报表、答辩材料、结项材料、票据、签名图片等与技术实现无关或涉及个人隐私的文件。
-
 ## 仓库结构
 
 - `ddh-miniprogram/`  
@@ -53,6 +51,7 @@
 ### 微信小程序
 
 位于 `ddh-miniprogram/`。
+<img width="430" height="430" alt="1f60fb1d610297b46817e221fd959646" src="https://github.com/user-attachments/assets/f7ea6073-ff7a-4012-bf80-b186c0dbe28b" />
 
 主要页面包括：
 
@@ -61,6 +60,8 @@
 - `pages/report/`
 - `pages/history/`
 - `pages/login/`
+<img width="545" height="1158" alt="9246303b7ebad91783cacd1f02eee0ef" src="https://github.com/user-attachments/assets/9f58153b-6448-4e24-b54a-750fb493a91b" />
+<img width="561" height="1165" alt="0e3f0fff3fa9156e9118dfa2563fece0" src="https://github.com/user-attachments/assets/c3b8720f-ffb0-4a91-a7ec-b0792fdd3008" />
 
 当前已覆盖的体验路径包括：
 
